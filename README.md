@@ -20,4 +20,5 @@ Every skill here is free to use. None need paid accounts or paid data services.
 
 - `SKILL.md` — the instructions Claude follows.
 - `*.skill` — the same skill packaged for upload.
+- `evals/` — test prompts used to check the skill while developing it. They aren't included in the `.skill` file.
 - `assets/` — files the skill uses, such as the page it builds. Any `.html` file here doubles as a preview: download it and open it in a browser to see it.

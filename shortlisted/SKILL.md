@@ -1,6 +1,6 @@
 ---
 name: shortlisted
-description: Helps someone run an organized, low-stress job search — tracking a prioritized company list, applications, networking outreach, and recruiting agencies, plus using Gmail to detect status changes and draft follow-up emails. Use this whenever the person mentions job hunting, job applications, tracking their job search, following up with a recruiter or networking contact, or asks Claude to check their inbox for interview/rejection/offer news. Also trigger if they ask to set up or open their "job search tracker," even if they don't name this skill directly.
+description: Runs the person's own job search in an organized, low-stress way — a job search tracker with a ranked list of target companies, applications and their status, networking contacts with a 3-business-day follow-up rule, and recruiting agencies — plus Gmail to spot interview, rejection and offer news or replies, and to draft follow-up nudges. Use it whenever someone who is job hunting wants to set up, open or update their tracker; asks whether they've heard back from a company, recruiter or contact; wants a follow-up to a networking contact, referral or agency recruiter; asks who to reach out to, or what's open, at a company they're targeting; or pastes a "My job search tracker" summary or a list of applications and asks what to do next — even if they never say "tracker". Not for writing resumes or cover letters, interview practice, salary negotiation, or tracking candidates from the hiring side.
 ---
 
 # Shortlisted

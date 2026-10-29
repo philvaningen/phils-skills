@@ -1,0 +1,22 @@
+[
+  {"query": "ok so i got laid off from my PM job last week and im starting to apply places. can you help me set up some way to keep track of where ive applied and who ive talked to? i have like 15 companies in a google sheet already", "should_trigger": true},
+  {"query": "did i ever hear back from stripe or plaid about the senior analyst roles? applied like 3 weeks ago and honestly cant remember", "should_trigger": true},
+  {"query": "I messaged Priya Shah at Datadog last Tuesday asking if she'd refer me for the solutions engineer role and she hasn't answered. Can you write a short follow-up I can send her? Her email is priya.shah@datadoghq.com", "should_trigger": true},
+  {"query": "can you go through my inbox and find any interview invites or rejections from the jobs i applied to this month", "should_trigger": true},
+  {"query": "My job search tracker (as of 2026-10-27)\n\nPRIORITY LIST (most wanted first)\n1. Notion — advocate: Jamie Park\n2. Linear\n\nAPPLICATIONS\n- Notion — Product Ops | status: Interview | applied 2026-10-02 | next: onsite on 2026-11-03\n- Linear — Ops Lead | status: Submitted | applied 2026-10-20\n\nNETWORK (3-business-day follow-up rule)\n- Jamie Park (Notion) | replied | last contact 2026-10-15\n- Chris Wu (Linear) | OVERDUE for a nudge | last contact 2026-10-21\n\nwhat should i focus on this week", "should_trigger": true},
+  {"query": "open my job search tracker", "should_trigger": true},
+  {"query": "I've been working with 3 recruiting agencies (Robert Half, Hays, and a small one called Talentfoot) and I keep losing track of when I last checked in with each recruiter. Help me stay on top of them", "should_trigger": true},
+  {"query": "what design systems roles is Figma hiring for right now? want to add any good ones to the list of places im applying to", "should_trigger": true},
+  {"query": "who should i reach out to at Ramp to try and get a referral for their finance ops role? i dont know anyone there", "should_trigger": true},
+  {"query": "got a rejection from shopify today :( can you mark it closed and help me figure out what's next on my list", "should_trigger": true},
+  {"query": "can you rewrite these resume bullets for a senior data engineer role? - built ETL pipelines in airflow - managed snowflake warehouse - mentored 2 juniors", "should_trigger": false},
+  {"query": "write me a cover letter for the product designer job at Airbnb, here's the posting: We're looking for a Product Designer to join our Guest Experience team...", "should_trigger": false},
+  {"query": "i have my final round with Coinbase on thursday for a backend role. can you run a mock system design interview with me? pretend you're the interviewer", "should_trigger": false},
+  {"query": "I'm the hiring manager for our open SWE role and have about 40 candidates. Build me a tracker for the candidate pipeline with stages like screen, onsite, offer", "should_trigger": false},
+  {"query": "Atlassian offered me $165k base and the recruiter said there's some flexibility. how do i ask for more without seeming greedy?", "should_trigger": false},
+  {"query": "draft a polite follow-up to our supplier Acme Packaging, they still haven't sent the invoice for the September order and it's been over a week", "should_trigger": false},
+  {"query": "set up a gmail filter that puts everything from greenhouse.io and lever.co under a 'Jobs' label and skips the inbox", "should_trigger": false},
+  {"query": "whats the typical salary range for a staff engineer in Austin right now, base + equity", "should_trigger": false},
+  {"query": "build me a little kanban board for my side project with todo / doing / done columns that saves in the browser", "should_trigger": false},
+  {"query": "our team is hiring, can you write a job description for a mid-level marketing manager focused on lifecycle email", "should_trigger": false}
+]
