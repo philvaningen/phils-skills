@@ -6,7 +6,7 @@ A collection of Claude skills by Phil Van Ingen. Each folder is one skill.
 
 | Skill | What it does |
 |---|---|
-| [job-search-copilot](job-search-copilot/) | Runs an organized, low-stress job search: a tracker for target companies, applications, networking and recruiting agencies, plus free Gmail scanning and follow-up drafts. |
+| [shortlisted](shortlisted/) | Runs an organized, low-stress job search: a tracker for target companies, applications, networking and recruiting agencies, plus free Gmail scanning and follow-up drafts. |
 
 ## How to add a skill to Claude
 
@@ -20,4 +20,4 @@ Every skill here is free to use. None need paid accounts or paid data services.
 
 - `SKILL.md` — the instructions Claude follows.
 - `*.skill` — the same skill packaged for upload.
-- Any `.html` file — a preview of the page the skill builds. Download it and open it in a browser to see it.
+- `assets/` — files the skill uses, such as the page it builds. Any `.html` file here doubles as a preview: download it and open it in a browser to see it.
