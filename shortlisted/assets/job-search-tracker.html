@@ -24,9 +24,41 @@
     --closed-soft: #ece9e2;
     --overdue: #a3432f;
     --overdue-soft: #f5e5e0;
+    --on-primary: #fff;
+    --primary-hover: #244a40;
+    --row-hover: #fbfaf6;
+    --field: #fff;
+    --scrim: rgba(32,36,31,0.45);
     --radius: 10px;
     --serif: Fraunces, 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
     --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color-scheme: light;
+  }
+
+  /* Dark mode: follows the system setting unless data-theme="light" is set; data-theme="dark" forces it */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161916; --paper: #1f231f; --ink: #e8e6df; --ink-soft: #a3a69c; --border: #353b34;
+      --primary: #74b39c; --primary-soft: #23332d;
+      --applied: #93b3d2; --applied-soft: #232d38;
+      --interview: #e2ab5a; --interview-soft: #3a2f1c;
+      --offer: #7fc2a8; --offer-soft: #1f3129;
+      --closed: #a7a196; --closed-soft: #2c2a26;
+      --overdue: #e88f78; --overdue-soft: #3d2520;
+      --on-primary: #10140f; --primary-hover: #8cc6b1; --row-hover: #242924; --field: #171a17; --scrim: rgba(0,0,0,0.6);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161916; --paper: #1f231f; --ink: #e8e6df; --ink-soft: #a3a69c; --border: #353b34;
+    --primary: #74b39c; --primary-soft: #23332d;
+    --applied: #93b3d2; --applied-soft: #232d38;
+    --interview: #e2ab5a; --interview-soft: #3a2f1c;
+    --offer: #7fc2a8; --offer-soft: #1f3129;
+    --closed: #a7a196; --closed-soft: #2c2a26;
+    --overdue: #e88f78; --overdue-soft: #3d2520;
+    --on-primary: #10140f; --primary-hover: #8cc6b1; --row-hover: #242924; --field: #171a17; --scrim: rgba(0,0,0,0.6);
+    color-scheme: dark;
   }
 
   * { box-sizing: border-box; }
@@ -53,11 +85,11 @@
   .upcoming .when { display: inline-block; min-width: 92px; font-weight: 600; color: var(--interview); }
 
   .btn { border: none; border-radius: 7px; padding: 9px 15px; font-family: var(--sans); font-weight: 500; font-size: 13.5px; cursor: pointer; }
-  .btn-primary { background: var(--primary); color: #fff; }
-  .btn-primary:hover { background: #244a40; }
+  .btn-primary { background: var(--primary); color: var(--on-primary); }
+  .btn-primary:hover { background: var(--primary-hover); }
   .btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--ink); }
   .btn-ghost:hover { background: var(--primary-soft); border-color: var(--primary); }
-  .btn-danger { background: var(--overdue); color: #fff; }
+  .btn-danger { background: var(--overdue); color: var(--on-primary); }
   .btn-small { padding: 5px 10px; font-size: 12.5px; border-radius: 6px; }
   .btn:disabled { opacity: 0.5; cursor: default; }
 
@@ -69,10 +101,10 @@
   thead th { text-align: left; font-size: 11.5px; color: var(--ink-soft); font-weight: 500; padding: 10px 12px; border-bottom: 1px solid var(--border); }
   tbody td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
   tbody tr:last-child td { border-bottom: none; }
-  tbody tr:hover { background: #fbfaf6; }
+  tbody tr:hover { background: var(--row-hover); }
   td input, td select, td textarea { width: 100%; border: 1px solid transparent; background: transparent; font-family: var(--sans); font-size: 13.5px; color: var(--ink); padding: 3px 5px; border-radius: 5px; }
   td input:hover, td select:hover, td textarea:hover { border-color: var(--border); }
-  td input:focus, td select:focus, td textarea:focus { outline: none; border-color: var(--primary); background: #fff; }
+  td input:focus, td select:focus, td textarea:focus { outline: none; border-color: var(--primary); background: var(--field); }
   td input + input { margin-top: 4px; }
   textarea { resize: vertical; min-height: 30px; }
   td.rank { width: 34px; color: var(--ink-soft); font-family: var(--serif); font-size: 16px; }
@@ -100,13 +132,13 @@
   .panel-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
   .hint { color: var(--ink-soft); font-size: 12.5px; }
 
-  .modal-backdrop { position: fixed; inset: 0; background: rgba(32,36,31,0.45); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 50; }
+  .modal-backdrop { position: fixed; inset: 0; background: var(--scrim); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 50; }
   .modal { background: var(--paper); border-radius: 12px; max-width: 600px; width: 100%; max-height: 85vh; overflow: auto; padding: 22px; }
   .modal h2 { font-family: var(--serif); font-weight: 500; font-size: 19px; margin: 0 0 4px; }
   .modal p.sub { color: var(--ink-soft); font-size: 13px; margin: 0 0 14px; }
-  .modal textarea.big { width: 100%; min-height: 200px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; border: 1px solid var(--border); border-radius: 8px; padding: 10px; background: #fff; color: var(--ink); }
+  .modal textarea.big { width: 100%; min-height: 200px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 12px; border: 1px solid var(--border); border-radius: 8px; padding: 10px; background: var(--field); color: var(--ink); }
   .modal label.field { display: block; font-size: 13px; color: var(--ink-soft); margin: 10px 0 4px; }
-  .modal select { font-family: var(--sans); font-size: 13.5px; padding: 5px 8px; border: 1px solid var(--border); border-radius: 6px; background: #fff; }
+  .modal select { font-family: var(--sans); font-size: 13.5px; padding: 5px 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--field); color: var(--ink); }
   .diff-item { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; display: flex; gap: 10px; align-items: flex-start; }
   .diff-item .txt { flex: 1; font-size: 13.5px; }
   .diff-item .txt .co { font-weight: 600; }
@@ -115,7 +147,7 @@
   .warn-text { color: var(--overdue); font-size: 13px; margin-top: 10px; }
   .spinner-line { display: flex; align-items: center; gap: 8px; color: var(--ink-soft); font-size: 13.5px; padding: 6px 0; }
 
-  .toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13.5px; z-index: 60; max-width: calc(100% - 32px); }
+  .toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: 10px 18px; border-radius: 8px; font-size: 13.5px; z-index: 60; max-width: calc(100% - 32px); }
 
   /* Phone layout: each table row becomes a card with labelled fields */
   @media (max-width: 720px) {
@@ -308,44 +340,79 @@
     return sameCo.find((a) => ti && (a.title || '').toLowerCase().trim() === ti) || null;
   }
 
+  function matchContact(u) {
+    const byId = state.networking.find((c) => c.id === u.id);
+    if (byId) return byId;
+    const em = (u.email || '').toLowerCase().trim();
+    if (em) {
+      const byEmail = state.networking.find((c) => (c.email || '').toLowerCase().trim() === em);
+      if (byEmail) return byEmail;
+    }
+    const nm = (u.name || '').toLowerCase().trim();
+    return state.networking.find((c) => nm && (c.name || '').toLowerCase().trim() === nm) || null;
+  }
+
+  // Contacts still waiting on a reply; each is searched from its own last-contact date
+  const awaitingReply = () => state.networking.filter((c) => !c.replied && c.lastContact && (c.name || c.email));
+
   async function scanGmail() {
-    if (!state.applications.length) { toast('Add an application first so there’s something to match against.'); return; }
-    state.modal = { type: 'loading', text: 'Searching Gmail for updates on your applications…' };
+    const contacts = awaitingReply();
+    if (!state.applications.length && !contacts.length) {
+      toast('Add an application or a contact first so there’s something to match against.');
+      return;
+    }
+    state.modal = { type: 'loading', text: 'Searching Gmail for application updates and replies…' };
     render();
-    const list = state.applications.map((a) =>
-      `[id=${a.id}] ${a.company || 'unknown company'} — ${a.title || 'role unspecified'} (applied ${a.dateApplied || 'unknown'}, current status: ${a.status})`
-    ).join('\n');
     // Recorded now but only saved once the results are applied, so a discarded
     // scan doesn't skip those emails next time. Local date, so evening emails aren't missed.
     const startedAt = new Date().toISOString();
     const range = state.meta.lastGmailScan
       ? `sent on or after ${isoOf(new Date(state.meta.lastGmailScan))}`
       : 'from the last 90 days';
-    const prompt = `Search my Gmail for messages about these job applications, ${range}:\n${list}\n\n` +
-      `For each application where you find an email indicating a status change (application acknowledged, moved to interview, rejected/closed, or offer), return one entry. ` +
+    const parts = [];
+    if (state.applications.length) {
+      parts.push(`JOB APPLICATIONS — look for messages ${range}:\n` + state.applications.map((a) =>
+        `[id=${a.id}] ${a.company || 'unknown company'} — ${a.title || 'role unspecified'} (applied ${a.dateApplied || 'unknown'}, current status: ${a.status})`
+      ).join('\n'));
+    }
+    if (contacts.length) {
+      parts.push(`NETWORKING CONTACTS I'm waiting to hear back from — look for a message FROM each person sent on or after the date given:\n` + contacts.map((c) =>
+        `[id=${c.id}] ${c.name || 'unknown name'}${c.company ? ` (${c.company})` : ''}${c.email ? ` <${c.email}>` : ''} — last contacted ${c.lastContact}`
+      ).join('\n'));
+    }
+    const prompt = `Search my Gmail for the following.\n\n${parts.join('\n\n')}\n\n` +
+      `For applications: return an entry when an email shows a status change (application acknowledged, moved to interview, rejected/closed, or offer). ` +
       `If I applied to more than one role at the same company, use the role named in the email to pick the right one.\n` +
-      `Respond with ONLY a JSON array, no prose, no markdown fences. Each entry: {"id": the id in square brackets for the matching application, "company": string, "title": string, "newStatus": one of "Submitted"|"Interview"|"Closed"|"Offer", "evidence": short one-sentence summary of the email, "date": the email's date in YYYY-MM-DD}.\n` +
-      `If you find nothing relevant for an application, omit it. If nothing at all is found, return [].`;
+      `For contacts: return an entry only when the person themselves wrote to me (not an auto-reply or out-of-office).\n` +
+      `Respond with ONLY a JSON object, no prose, no markdown fences: {"applications": [{"id": the id in square brackets, "company": string, "title": string, "newStatus": one of "Submitted"|"Interview"|"Closed"|"Offer", "evidence": short one-sentence summary of the email, "date": the email's date in YYYY-MM-DD}], ` +
+      `"replies": [{"id": the id in square brackets, "name": string, "email": string, "evidence": short one-sentence summary of their reply, "date": YYYY-MM-DD}]}.\n` +
+      `Omit anything with no relevant email. If nothing at all is found, return {"applications": [], "replies": []}.`;
     try {
-      const { text } = await askClaude(prompt, ['gmail'], 2000);
-      const updates = extractJson(text);
-      if (!Array.isArray(updates)) throw new Error('Unreadable response');
-      if (!updates.length) {
+      const { text } = await askClaude(prompt, ['gmail'], 2500);
+      const result = extractJson(text);
+      // An older-style bare array means application updates only
+      const appUpdates = Array.isArray(result) ? result : result && Array.isArray(result.applications) ? result.applications : null;
+      const replies = result && !Array.isArray(result) && Array.isArray(result.replies) ? result.replies : [];
+      if (!appUpdates) throw new Error('Unreadable response');
+      const items = [
+        ...appUpdates.map((u) => {
+          const app = matchApplication(u);
+          return { ...u, kind: 'app', targetId: app ? app.id : null, accept: !!app };
+        }),
+        ...replies.map((u) => {
+          const c = matchContact(u);
+          return { ...u, kind: 'reply', targetId: c && !c.replied ? c.id : null, accept: !!(c && !c.replied) };
+        }),
+      ];
+      if (!items.length) {
         state.meta.lastGmailScan = startedAt;
         save('meta');
         state.modal = null;
         render();
-        toast('No new status updates found.');
+        toast('No new updates or replies found.');
         return;
       }
-      state.modal = {
-        type: 'gmail-review',
-        startedAt,
-        updates: updates.map((u) => {
-          const app = matchApplication(u);
-          return { ...u, appId: app ? app.id : null, accept: !!app };
-        }),
-      };
+      state.modal = { type: 'gmail-review', startedAt, items };
       render();
     } catch (e) {
       state.modal = null;
@@ -355,20 +422,35 @@
   }
 
   function applyGmailUpdates() {
-    const accepted = state.modal.updates.filter((u) => u.accept && u.appId);
+    const accepted = state.modal.items.filter((u) => u.accept && u.targetId);
+    let apps = 0, replies = 0;
     accepted.forEach((u) => {
-      const app = state.applications.find((a) => a.id === u.appId);
+      const note = `${u.date || ''}: ${u.evidence || ''}`;
+      if (u.kind === 'reply') {
+        const c = state.networking.find((r) => r.id === u.targetId);
+        if (!c) return;
+        c.replied = true;
+        c.notes = (c.notes ? c.notes + ' — ' : '') + note;
+        replies++;
+        return;
+      }
+      const app = state.applications.find((a) => a.id === u.targetId);
       if (!app) return;
       if (STATUSES.includes(u.newStatus)) app.status = u.newStatus;
       if (u.newStatus === 'Submitted' && !app.dateApplied) app.dateApplied = normalizeDate(u.date) || todayISO();
-      app.notes = (app.notes ? app.notes + ' — ' : '') + `${u.date || ''}: ${u.evidence || ''}`;
+      app.notes = (app.notes ? app.notes + ' — ' : '') + note;
+      apps++;
     });
-    save('applications');
+    if (apps) save('applications');
+    if (replies) save('networking');
     state.meta.lastGmailScan = state.modal.startedAt;
     save('meta');
     state.modal = null;
     render();
-    toast(`Updated ${accepted.length} application${accepted.length === 1 ? '' : 's'}.`);
+    const bits = [];
+    if (apps) bits.push(`${apps} application${apps === 1 ? '' : 's'}`);
+    if (replies) bits.push(`${replies} repl${replies === 1 ? 'y' : 'ies'}`);
+    toast(bits.length ? `Updated ${bits.join(' and ')}.` : 'Nothing applied.');
   }
 
   // ---------- Network: overdue rule, nudges, replies ----------
@@ -385,6 +467,23 @@
     save('networking');
     render();
     toast('Logged — the 3-day clock starts again from today.');
+  }
+
+  // ---------- Agencies: check in every 10 business days (about two weeks) ----------
+  const AGENCY_CHECKIN_DAYS = 10;
+  function agencyCheckInDate(g) {
+    return g.lastContact ? addBusinessDays(g.lastContact, AGENCY_CHECKIN_DAYS) : '';
+  }
+  function isAgencyDue(g) {
+    return !!g.lastContact && todayISO() > agencyCheckInDate(g);
+  }
+  function logCheckIn(id) {
+    const g = state.agencies.find((r) => r.id === id);
+    if (!g) return;
+    g.lastContact = todayISO();
+    save('agencies');
+    render();
+    toast('Logged — next check-in in about two weeks.');
   }
 
   function toggleReplied(id) {
@@ -452,6 +551,7 @@
     state.agencies.forEach((g) => {
       const bits = [`${g.agency || '?'}${g.recruiter ? ` — ${g.recruiter}` : ''}`];
       if (g.lastContact) bits.push(`last contact ${g.lastContact}`);
+      if (isAgencyDue(g)) bits.push('DUE for a check-in');
       if (g.notes) bits.push(`notes: ${g.notes}`);
       L.push('- ' + bits.join(' | '));
     });
@@ -710,7 +810,7 @@
   function renderStats() {
     const active = state.applications.filter((a) => a.status !== 'Closed').length;
     const interviews = state.applications.filter((a) => a.status === 'Interview').length;
-    const overdue = state.networking.filter(isOverdue).length;
+    const overdue = state.networking.filter(isOverdue).length + state.agencies.filter(isAgencyDue).length;
     const soon = upcomingItems().length;
     const stat = (n, l, warn) => el('div', { class: 'stat' + (warn ? ' warn' : '') }, [el('div', { class: 'n' }, [String(n)]), el('div', { class: 'l' }, [l])]);
     return el('div', { class: 'stats' }, [
@@ -827,16 +927,25 @@
 
   function renderAgencies() {
     const rows = state.agencies;
-    const table = buildTable(['Recruiting agency', 'Recruiter', 'Email', 'Last contact', 'Notes', ''], rows.map((r) => [
+    const table = buildTable(['Recruiting agency', 'Recruiter', 'Email', 'Last contact', 'Check-in', 'Notes', ''], rows.map((r) => [
       editableCell('agencies', r, 'agency', { placeholder: 'Agency' }),
       editableCell('agencies', r, 'recruiter', { placeholder: 'Recruiter name' }),
       editableCell('agencies', r, 'email', { placeholder: 'Email' }),
-      editableCell('agencies', r, 'lastContact', { type: 'date' }),
+      editableCell('agencies', r, 'lastContact', { type: 'date', rerender: true }),
+      el('td', {}, [
+        !r.lastContact ? el('span', { class: 'badge open' }, ['No contact yet'])
+          : isAgencyDue(r) ? el('span', { class: 'badge overdue' }, ['Check in — 2+ weeks'])
+          : el('span', { class: 'badge ontrack' }, ['Next ' + fmtDate(agencyCheckInDate(r))]),
+      ]),
       editableCell('agencies', r, 'notes', { placeholder: 'Roles they’re sending you, specialties…', textarea: true }),
-      el('td', {}, [removeBtn('agencies', r.id)]),
+      el('td', {}, [el('div', { class: 'row-actions' }, [
+        el('button', { class: 'btn btn-ghost btn-small', title: 'I checked in with them today', onclick: () => logCheckIn(r.id) }, ['Log check-in']),
+        removeBtn('agencies', r.id),
+      ])]),
     ]), 'Keep a running list of agencies and recruiters you’ve talked to.');
     const foot = el('div', { class: 'panel-foot' }, [
       el('button', { class: 'btn btn-ghost add-row-btn', onclick: () => addRow('agencies', { agency: '', recruiter: '', email: '', lastContact: todayISO(), notes: '' }) }, ['+ Add agency']),
+      el('span', { class: 'hint' }, ['Check in with each recruiter about every two weeks so you stay on their shortlist.']),
     ]);
     return el('div', {}, [table, foot]);
   }
@@ -853,12 +962,19 @@
     if (m.type === 'loading') return modalShell([el('div', { class: 'spinner-line' }, [m.text])]);
 
     if (m.type === 'gmail-review') {
-      const items = m.updates.map((u) => {
-        const app = u.appId ? state.applications.find((a) => a.id === u.appId) : null;
+      const items = m.items.map((u) => {
+        let label;
+        if (u.kind === 'reply') {
+          const c = u.targetId ? state.networking.find((r) => r.id === u.targetId) : null;
+          label = c ? `${c.name}${c.company ? ` (${c.company})` : ''} replied` : `${u.name || u.email || '?'} replied (no matching contact waiting on a reply)`;
+        } else {
+          const app = u.targetId ? state.applications.find((a) => a.id === u.targetId) : null;
+          label = app ? `${app.company} — ${app.title || 'role'} → ${u.newStatus}` : `${u.company || '?'} — ${u.title || '?'} → ${u.newStatus} (no matching row)`;
+        }
         return el('div', { class: 'diff-item' }, [
-          el('input', { type: 'checkbox', checked: u.accept, disabled: !app, onchange: (e) => { u.accept = e.target.checked; } }),
+          el('input', { type: 'checkbox', checked: u.accept, disabled: !u.targetId, onchange: (e) => { u.accept = e.target.checked; } }),
           el('div', { class: 'txt' }, [
-            el('div', { class: 'co' }, [app ? `${app.company} — ${app.title || 'role'} → ${u.newStatus}` : `${u.company || '?'} — ${u.title || '?'} → ${u.newStatus} (no matching row)`]),
+            el('div', { class: 'co' }, [label]),
             el('div', { class: 'ev' }, [`${u.date || ''}: ${u.evidence || ''}`]),
           ]),
         ]);
