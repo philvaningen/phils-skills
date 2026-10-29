@@ -315,8 +315,13 @@
     const list = state.applications.map((a) =>
       `[id=${a.id}] ${a.company || 'unknown company'} — ${a.title || 'role unspecified'} (applied ${a.dateApplied || 'unknown'}, current status: ${a.status})`
     ).join('\n');
-    const since = state.meta.lastGmailScan ? state.meta.lastGmailScan.slice(0, 10) : 'the last 90 days';
-    const prompt = `Search my Gmail for messages about these job applications, sent since ${since}:\n${list}\n\n` +
+    // Recorded now but only saved once the results are applied, so a discarded
+    // scan doesn't skip those emails next time. Local date, so evening emails aren't missed.
+    const startedAt = new Date().toISOString();
+    const range = state.meta.lastGmailScan
+      ? `sent on or after ${isoOf(new Date(state.meta.lastGmailScan))}`
+      : 'from the last 90 days';
+    const prompt = `Search my Gmail for messages about these job applications, ${range}:\n${list}\n\n` +
       `For each application where you find an email indicating a status change (application acknowledged, moved to interview, rejected/closed, or offer), return one entry. ` +
       `If I applied to more than one role at the same company, use the role named in the email to pick the right one.\n` +
       `Respond with ONLY a JSON array, no prose, no markdown fences. Each entry: {"id": the id in square brackets for the matching application, "company": string, "title": string, "newStatus": one of "Submitted"|"Interview"|"Closed"|"Offer", "evidence": short one-sentence summary of the email, "date": the email's date in YYYY-MM-DD}.\n` +
@@ -325,9 +330,9 @@
       const { text } = await askClaude(prompt, ['gmail'], 2000);
       const updates = extractJson(text);
       if (!Array.isArray(updates)) throw new Error('Unreadable response');
-      state.meta.lastGmailScan = new Date().toISOString();
-      save('meta');
       if (!updates.length) {
+        state.meta.lastGmailScan = startedAt;
+        save('meta');
         state.modal = null;
         render();
         toast('No new status updates found.');
@@ -335,6 +340,7 @@
       }
       state.modal = {
         type: 'gmail-review',
+        startedAt,
         updates: updates.map((u) => {
           const app = matchApplication(u);
           return { ...u, appId: app ? app.id : null, accept: !!app };
@@ -354,9 +360,12 @@
       const app = state.applications.find((a) => a.id === u.appId);
       if (!app) return;
       if (STATUSES.includes(u.newStatus)) app.status = u.newStatus;
+      if (u.newStatus === 'Submitted' && !app.dateApplied) app.dateApplied = normalizeDate(u.date) || todayISO();
       app.notes = (app.notes ? app.notes + ' — ' : '') + `${u.date || ''}: ${u.evidence || ''}`;
     });
     save('applications');
+    state.meta.lastGmailScan = state.modal.startedAt;
+    save('meta');
     state.modal = null;
     render();
     toast(`Updated ${accepted.length} application${accepted.length === 1 ? '' : 's'}.`);
