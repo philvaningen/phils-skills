@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: weekly-plan-from-pasted-summary
+expected_outcome: |
+  A short, concrete plan for the week built from the pasted tracker: prep for the Notion onsite, nudge Chris Wu, check in with Talentfoot, and start on Ramp, which is a top priority with no application or advocate.
