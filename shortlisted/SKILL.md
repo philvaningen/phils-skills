@@ -11,9 +11,9 @@ The core artifact is the tracker template in `assets/job-search-tracker.html` �
 
 **Everything in this skill must stay free.** The only connector it uses is Gmail, which costs nothing. Never add or suggest paid data services, paid APIs, or anything that needs a paid account or credits.
 
-## The tracker's philosophy (from the original template this was built from)
+## The tracker's philosophy
 
-A few principles the original creator used, worth keeping in mind since they shape the tool's behavior:
+A few principles behind the tracker, worth keeping in mind since they shape the tool's behavior:
 
 - **Rank companies by priority AND advocacy.** The priority list isn't just "companies I like" — it factors in whether there's someone who can put in a word. That's usually the highest-leverage combination.
 - **The 3-business-day rule.** If a networking contact hasn't responded in 3 business days, that's the moment to send a polite nudge — not a sign to wait longer or to feel bad about following up. People are busy and forget; a nudge is a favor to them too.
