@@ -7,6 +7,7 @@ A collection of Claude skills by Phil Van Ingen. Each folder is one skill.
 | Skill | What it does |
 |---|---|
 | [localhost-o-matic](localhost-o-matic/) | Gets any project running on your own machine: it reads the repo, checks what's already installed, and walks through services, dependencies, database and startup. |
+| [functional-test](functional-test/) | Tests a feature end-to-end in your web app — through the API and a real browser — after optionally deploying the branch to a dev environment. Refuses production, asks once before creating any test data, and writes a report you can paste into the PR. |
 | [ci-failures](ci-failures/) | Pulls the failure logs from red GitHub Actions checks and explains what went wrong, using the GitHub CLI. |
 | [shortlisted](shortlisted/) | Runs an organized, low-stress job search: a tracker for target companies, applications, networking and recruiting agencies, plus free Gmail scanning and follow-up drafts. |
 
