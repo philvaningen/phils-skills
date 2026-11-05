@@ -1,0 +1,22 @@
+[
+  {"query": "i just cloned this repo and have no idea how to get it running on my laptop, can you set it up for me?", "should_trigger": true},
+  {"query": "New job, first day. They pointed me at github.com/example/storefront and said good luck. Can you get it running locally?", "should_trigger": true},
+  {"query": "docker compose up fails because port 5432 is already allocated and now the app won't boot locally", "should_trigger": true},
+  {"query": "bundle install keeps dying on mysql2 while I'm setting up this rails app on my m3 mac", "should_trigger": true},
+  {"query": "I'm a PM and want to try our app on my own computer without bugging an engineer. Where do I even start?", "should_trigger": true},
+  {"query": "localhost:3000 just spins forever after i followed half of the readme for this project", "should_trigger": true},
+  {"query": "set up this django project locally, it uses uv and postgres", "should_trigger": true},
+  {"query": "get this monorepo running on my machine, frontend and api both", "should_trigger": true},
+  {"query": "My local dev environment broke after updating macOS, ruby is showing 2.6 and nothing starts", "should_trigger": true},
+  {"query": "can you walk me through local setup for this repo? the docs look out of date", "should_trigger": true},
+  {"query": "deploy this rails app to production on fly.io", "should_trigger": false},
+  {"query": "write a dockerfile so we can ship this service to kubernetes", "should_trigger": false},
+  {"query": "why is CI red on my PR?", "should_trigger": false},
+  {"query": "add a dark mode toggle to the settings page of this app", "should_trigger": false},
+  {"query": "our staging environment is returning 502s since this morning, help me find out why", "should_trigger": false},
+  {"query": "explain what a docker volume is", "should_trigger": false},
+  {"query": "write rspec tests for the invoice model", "should_trigger": false},
+  {"query": "scaffold a brand new next.js app for me from scratch", "should_trigger": false},
+  {"query": "set up a new macbook with my usual apps, slack, chrome and spotify", "should_trigger": false},
+  {"query": "this sql query is slow in production, can you look at the plan?", "should_trigger": false}
+]
